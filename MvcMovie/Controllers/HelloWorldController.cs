@@ -28,9 +28,15 @@ namespace MvcMovie.Controllers
         //}
 
         //// Adding parameters in the welcome method to add query in the browser
-        public string Welcome(string name, int numTimes = 1)
+        //public string Welcome(string name, int numTimes = 1)
+        //{
+        //    return HttpUtility.HtmlEncode ("Hello " + name + ", NumTimes is: " + numTimes);
+        //}
+
+      // Changing the parameters
+        public string Welcome(string name, int ID = 1)
         {
-            return HttpUtility.HtmlEncode ("Hello " + name + ", NumTimes is: " + numTimes);
+            return HttpUtility.HtmlEncode("Hello " + name + ", ID: " + ID);
         }
 
 
