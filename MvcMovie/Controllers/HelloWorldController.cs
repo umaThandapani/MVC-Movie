@@ -21,12 +21,17 @@ namespace MvcMovie.Controllers
         }
 
 
-        //// GET: HelloWorld/Welcome
-        public string Welcome()
-        {
-            return "This is the Welcome action method....";
-        }
+        ////// GET: HelloWorld/Welcome
+        //public string Welcome()
+        //{
+        //    return "This is the Welcome action method....";
+        //}
 
+        //// Adding parameters in the welcome method to add query in the browser
+        public string Welcome(string name, int numTimes = 1)
+        {
+            return HttpUtility.HtmlEncode ("Hello " + name + ", NumTimes is: " + numTimes);
+        }
 
 
     }
