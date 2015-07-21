@@ -14,7 +14,7 @@ namespace MvcMovie.Controllers
     {
         private MovieDBContext db = new MovieDBContext();
 
-        /// GET: Movies
+        /// 3 GET: Movies
         /// Adding Search Feature and changing the signature to ID to Index method 
         /// 
 
@@ -33,7 +33,7 @@ namespace MvcMovie.Controllers
 
 
 
-       // //// GET: Movies
+       // //// 2 GET: Movies
        //// Adding Search Feature(in Index action)
 
         //public ActionResult Index(string searchString)
@@ -50,26 +50,55 @@ namespace MvcMovie.Controllers
 
         //}
         
-        /// Searching/filtering through HTTP Post method
+        /// 4 Searching/filtering through HTTP Post method
         
-        [HttpPost]
-        public string Index(FormCollection fc, string searchString)
+        //[HttpPost]
+        //public string Index(FormCollection fc, string searchString)
+        //{
+        //    return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
+        //}
+        
+         //// 1
+        ///GET: Movies
+        //public ActionResult Index()
+        //{
+        //    return View(db.Movies.ToList());
+        //}
+        
+        // 5 GET method 
+        // Search Movies by genre
+
+        public ActionResult Index(string movieGenre, string searchString)
         {
-            return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Movies
+                           orderby d.Genre
+                           select d.Genre;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+
+            var movies = from m in db.Movies
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+
+            return View(movies);
         }
         
         
         
         
-        
-        
-        
-        
-        //// GET: Movies
-        //public ActionResult Index()
-        //{
-        //    return View(db.Movies.ToList());
-        //}
+       
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
