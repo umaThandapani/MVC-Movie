@@ -18,17 +18,17 @@ namespace MvcMovie.Controllers
         /// Adding Search Feature and changing the signature to ID to Index method 
         /// 
 
-        public ActionResult Index(string id)
-        {
-            string searchString = id;
-            var movies = from m in db.Movies select m;
+        //public ActionResult Index(string id)
+        //{
+        //    string searchString = id;
+        //    var movies = from m in db.Movies select m;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                movies = movies.Where(s => s.Title.Contains(searchString));
-            }
-            return View(movies);
-        }
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        movies = movies.Where(s => s.Title.Contains(searchString));
+        //    }
+        //    return View(movies);
+        //}
 
 
 
@@ -36,19 +36,19 @@ namespace MvcMovie.Controllers
        // //// GET: Movies
        //// Adding Search Feature(in Index action)
 
-       // public ActionResult Index (string searchString)
-       // {
-       //     var movies = from m in db.Movies
-       //                  select m;
+        public ActionResult Index(string searchString)
+        {
+            var movies = from m in db.Movies
+                         select m;
 
-       //     if (!String.IsNullOrEmpty(searchString))
-       //     {
-       //         movies = movies.Where(s => s.Title.Contains(searchString));
-       //     }
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
 
-       //     return View(movies);
+            return View(movies);
 
-       // }
+        }
         
         
         
