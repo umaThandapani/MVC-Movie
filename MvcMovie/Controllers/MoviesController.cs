@@ -13,22 +13,42 @@ namespace MvcMovie.Controllers
     public class MoviesController : Controller
     {
         private MovieDBContext db = new MovieDBContext();
-        //// GET: Movies
-       // Adding Search Feature(in Index action)
 
-        public ActionResult Index (string searchString)
+        /// GET: Movies
+        /// Adding Search Feature and changing the signature to ID to Index method 
+        /// 
+
+        public ActionResult Index(string id)
         {
-            var movies = from m in db.Movies
-                         select m;
+            string searchString = id;
+            var movies = from m in db.Movies select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(s => s.Title.Contains(searchString));
             }
-
             return View(movies);
-
         }
+
+
+
+
+       // //// GET: Movies
+       //// Adding Search Feature(in Index action)
+
+       // public ActionResult Index (string searchString)
+       // {
+       //     var movies = from m in db.Movies
+       //                  select m;
+
+       //     if (!String.IsNullOrEmpty(searchString))
+       //     {
+       //         movies = movies.Where(s => s.Title.Contains(searchString));
+       //     }
+
+       //     return View(movies);
+
+       // }
         
         
         
