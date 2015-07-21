@@ -36,20 +36,27 @@ namespace MvcMovie.Controllers
        // //// GET: Movies
        //// Adding Search Feature(in Index action)
 
-        public ActionResult Index(string searchString)
-        {
-            var movies = from m in db.Movies
-                         select m;
+        //public ActionResult Index(string searchString)
+        //{
+        //    var movies = from m in db.Movies
+        //                 select m;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                movies = movies.Where(s => s.Title.Contains(searchString));
-            }
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        movies = movies.Where(s => s.Title.Contains(searchString));
+        //    }
 
-            return View(movies);
+        //    return View(movies);
 
-        }
+        //}
         
+        /// Searching/filtering through HTTP Post method
+        
+        [HttpPost]
+        public string Index(FormCollection fc, string searchString)
+        {
+            return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
+        }
         
         
         
