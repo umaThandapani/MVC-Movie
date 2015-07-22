@@ -34,6 +34,7 @@ namespace MvcMovie.Migrations
                     Title = "When Harry Met Sally",
                     ReleaseDate = DateTime.Parse("1989-1-11"),
                     Genre = "Romantic Comedy",
+                    Rating = "PG",
                     Price = 7.99M
                 },
 
@@ -42,6 +43,7 @@ namespace MvcMovie.Migrations
                     Title = "Ghostbusters",
                     ReleaseDate = DateTime.Parse("1984-3-13"),
                     Genre = "Comedy",
+                    Rating = "PG",
                     Price = 8.99M
                 },
                 new Movie
@@ -49,6 +51,7 @@ namespace MvcMovie.Migrations
                     Title = "Rio Bravo",
                     ReleaseDate = DateTime.Parse("1959-4-15"),
                     Genre = "Western",
+                    Rating = "PG",
                     Price = 3.99M
                 }
                 );

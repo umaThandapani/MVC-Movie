@@ -55,3 +55,4 @@ C:\Users\Ezhilventhan\Documents\Visual Studio 2013\Projects\MvcMovie\MvcMovie\ob
 C:\Users\Ezhilventhan\Documents\Visual Studio 2013\Projects\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csprojResolveAssemblyReference.cache
 C:\Users\Ezhilventhan\Documents\Visual Studio 2013\Projects\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Initial.resources
 C:\Users\Ezhilventhan\Documents\Visual Studio 2013\Projects\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.GenerateResource.Cache
+C:\Users\Ezhilventhan\Documents\Visual Studio 2013\Projects\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Rating.resources
